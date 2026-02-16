@@ -1,0 +1,17 @@
+/* Basic layout and styling to match the provided hero design */
+:root{
+  --hero-bg: #ffffff;
+  --muted: #6c757d;
+}
+body{font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#f4f6f8 0%, #ffffff 60%);}
+.site-header .navbar-brand{font-weight:600}
+.hero{padding-top:3.5rem;padding-bottom:3.5rem}
+.laptop-mock{max-width:420px;border-radius:12px;overflow:hidden}
+.feature-card{border:0;background:#fff;border-radius:8px}
+.feature-card .icon{color:#0b6b3a}
+.feature-card h6{font-weight:600}
+.main-area{margin-top:1rem}
+
+@media (max-width: 767px){
+  .laptop-mock svg{width:320px;height:auto}
+}
