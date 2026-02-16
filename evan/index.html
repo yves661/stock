@@ -12,7 +12,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand d-flex align-items-center" href="#">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
             <i class="bi bi-shop-window me-2 fs-4"></i>
             Mini Shop Manager
           </a>
@@ -20,10 +20,39 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-              <li class="nav-item"><a class="btn btn-outline-light ms-2" href="#">Login</a></li>
+            <ul class="navbar-nav ms-auto gap-2">
+              <!-- Features Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown">
+                  Features
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                  <li><a class="dropdown-item" href="features.html">All Features</a></li>
+                  <li><a class="dropdown-item" href="features.html#streamlined">Streamlined Inventory</a></li>
+                  <li><a class="dropdown-item" href="features.html#tracking">Effortless Tracking</a></li>
+                  <li><a class="dropdown-item" href="features.html#reporting">Smart Reporting</a></li>
+                </ul>
+              </li>
+
+              <!-- Pricing Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pricingDropdown" role="button" data-bs-toggle="dropdown">
+                  Pricing
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="pricingDropdown">
+                  <li><a class="dropdown-item" href="pricing.html#plans">All Plans</a></li>
+                  <li><a class="dropdown-item" href="pricing.html#basic">Basic Plan</a></li>
+                  <li><a class="dropdown-item" href="pricing.html#pro">Pro Plan</a></li>
+                  <li><a class="dropdown-item" href="pricing.html#enterprise">Enterprise Plan</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="pricing.html#faq">FAQ</a></li>
+                </ul>
+              </li>
+
+              <!-- Login Button -->
+              <li class="nav-item">
+                <a class="btn btn-primary text-white" href="login.html">Login</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -38,7 +67,7 @@
               <h1 class="display-5 fw-bold">Manage Your Mini Shop with Ease</h1>
               <p class="lead text-muted mb-4">Simplify Stock, Boost Profits, and Track sales Effortsells. Designed for Rwanda</p>
               <div>
-                <button id="cta" class="btn btn-success btn-lg me-2">Get Started Now</button>
+                <a href="features.html" class="btn btn-success btn-lg me-2">Get Started Now</a>
                 <small class="text-muted">No credit card required</small>
               </div>
             </div>
