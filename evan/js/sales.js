@@ -55,7 +55,9 @@ function initializeSalesPage() {
 
     // Add to Cart
     if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', addProductToCart);
+        addToCartBtn.addEventListener('click', function() {
+            addProductToCart();
+        });
     }
 
     // Cancel Transaction
@@ -83,20 +85,64 @@ function handleProductSearch(e) {
 }
 
 // Add Product to Cart
-function addProductToCart() {
-    const searchInput = document.getElementById('searchProductSales');
-    const productName = searchInput.value.trim();
+function addProductToCart(productName, productPrice, quantity) {
+    // If called with parameters (from product cards)
+    if (productName && productPrice) {
+        // Check if product already in cart
+        const existingItem = salesCart.find(item => item.name === productName);
+        
+        if (existingItem) {
+            existingItem.quantity += (quantity || 1);
+        } else {
+            // Generate a simple ID based on product name
+            const productId = salesCart.length + Math.random();
+            salesCart.push({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: (quantity || 1)
+            });
+        }
 
-    if (!productName) {
+        // Save to session
+        sessionStorage.setItem('salesCart', JSON.stringify(salesCart));
+        
+        // Update display
+        updateCartDisplay();
+        
+        // Show success message on button
+        try {
+            const btn = event.currentTarget || event.target;
+            if (btn) {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="bi bi-check-circle"></i> Added!';
+                btn.disabled = true;
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1000);
+            }
+        } catch (e) {
+            // Button feedback not critical
+            console.log('Product added to cart');
+        }
+        return;
+    }
+
+    // Original search-based method
+    const searchInput = document.getElementById('searchProductSales');
+    const searchProductName = searchInput.value.trim();
+
+    if (!searchProductName) {
         alert('Please enter a product name');
         return;
     }
 
     // Find product
-    const product = productsList.find(p => p.name.toLowerCase() === productName.toLowerCase());
+    const product = productsList.find(p => p.name.toLowerCase() === searchProductName.toLowerCase());
     
     if (!product) {
-        alert(`Product "${productName}" not found. Available products: ${productsList.map(p => p.name).join(', ')}`);
+        alert(`Product "${searchProductName}" not found. Available products: ${productsList.map(p => p.name).join(', ')}`);
         searchInput.value = '';
         return;
     }

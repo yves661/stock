@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Mini Shop Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/translator.js"></script>
+</head>
+<body class="signup-page">
+    <!-- Header/Navigation -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-lg">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <i class="bi bi-shop-window me-2 fs-5"></i>
+                    <strong>Mini Shop Manager</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto gap-2">
+                        <!-- Features Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown">
+                                Features
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                                <li><a class="dropdown-item" href="features.html">All Features</a></li>
+                                <li><a class="dropdown-item" href="features.html#streamlined">Streamlined Inventory</a></li>
+                                <li><a class="dropdown-item" href="features.html#tracking">Effortless Tracking</a></li>
+                                <li><a class="dropdown-item" href="features.html#reporting">Smart Reporting</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Pricing Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="pricingDropdown" role="button" data-bs-toggle="dropdown">
+                                Pricing
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="pricingDropdown">
+                                <li><a class="dropdown-item" href="pricing.html#plans">All Plans</a></li>
+                                <li><a class="dropdown-item" href="pricing.html#basic">Basic Plan</a></li>
+                                <li><a class="dropdown-item" href="pricing.html#pro">Pro Plan</a></li>
+                                <li><a class="dropdown-item" href="pricing.html#enterprise">Enterprise Plan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="pricing.html#faq">FAQ</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Language Selector -->
+                        <li class="nav-item">
+                            <div class="language-selector" id="languageSelector">
+                                <button id="languageBtn" onclick="toggleLanguageDropdown(); return false;">
+                                    <i class="bi bi-globe"></i>
+                                    <span>English</span>
+                                </button>
+                                <div id="languageDropdown">
+                                    <button onclick="setLanguage('en'); return false;" data-lang="en" class="active">English</button>
+                                    <button onclick="setLanguage('fr'); return false;" data-lang="fr">Français</button>
+                                    <button onclick="setLanguage('rw'); return false;" data-lang="rw">Kinyarwanda</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Login Button -->
+                        <li class="nav-item">
+                            <a class="btn btn-primary text-white" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Signup Container -->
+    <main class="signup-container">
+        <div class="signup-background"></div>
+        
+        <div class="signup-form-wrapper">
+            <div class="signup-card">
+                <!-- Signup Card Header -->
+                <div class="signup-card-header">
+                    <div class="signup-icon">
+                        <i class="bi bi-shop-window"></i>
+                    </div>
+                    <h3 class="signup-card-title">Mini Shop Manager</h3>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="signup-card-body">
+                    <h2 class="signup-title">Create Admin Account</h2>
+                    
+                    <form id="signupForm" class="signup-form">
+                        <!-- Full Name Field -->
+                        <div class="form-group mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-person"></i>
+                                </span>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="fullname" 
+                                    placeholder="Full Name"
+                                    required
+                                    aria-label="Full Name"
+                                >
+                                <button class="btn btn-outline-secondary" type="button" id="nameHelpBtn" title="Name help">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-envelope"></i>
+                                </span>
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="email" 
+                                    placeholder="Email Address"
+                                    required
+                                    aria-label="Email Address"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group mb-4">
+                            <div class="input-row">
+                                <div class="input-group flex-grow-1">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="password" 
+                                        placeholder="Password"
+                                        required
+                                        aria-label="Password"
+                                    >
+                                </div>
+                                <div class="input-group flex-grow-1">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock-check"></i>
+                                    </span>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="confirmPassword" 
+                                        placeholder="Confirm Password"
+                                        required
+                                        aria-label="Confirm Password"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password Strength Indicator -->
+                        <div id="passwordStrength" class="password-strength mb-3">
+                            <div class="strength-bar">
+                                <div class="strength-progress" id="strengthProgress"></div>
+                            </div>
+                            <small id="strengthText" class="strength-text">Password strength</small>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="form-check mb-4">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                id="terms" 
+                                required
+                            >
+                            <label class="form-check-label" for="terms">
+                                I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <!-- Create Account Button -->
+                        <button type="submit" class="btn btn-signup w-100">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <!-- Login Link -->
+                    <div class="signup-footer">
+                        <p class="mb-0">
+                            Already have or account? 
+                            <a href="login.html" class="login-link">Login</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Error/Success Messages -->
+                <div id="signupMessage" class="signup-message"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer py-4 mt-5">
+        <div class="container-lg">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+</html>

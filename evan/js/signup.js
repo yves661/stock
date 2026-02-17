@@ -78,25 +78,28 @@ function handleSignup() {
         return;
     }
 
-    // Simulate account creation
+    // Call backend API to create account
     showSignupMessage('Creating your account...', 'info');
-    
-    setTimeout(function() {
-        // Store account info
-        const userData = {
-            fullname: fullname,
-            email: email,
-            createdAt: new Date().toISOString()
-        };
-        sessionStorage.setItem('newAccount', JSON.stringify(userData));
-        
-        showSignupMessage('Account created successfully! Redirecting to login...', 'success');
-        
-        // Redirect to login
-        setTimeout(function() {
-            window.location.href = 'login.html';
-        }, 1500);
-    }, 1000);
+
+    const formData = new FormData();
+    formData.append('fullname', fullname);
+    formData.append('email', email);
+    formData.append('password', password);
+
+    fetch('api/register.php', {
+        method: 'POST',
+        body: formData
+    }).then(res => res.json())
+      .then(data => {
+        if (data.success) {
+            showSignupMessage('Account created successfully! Redirecting to login...', 'success');
+            setTimeout(() => window.location.href = 'login.php', 1200);
+        } else {
+            showSignupMessage(data.message || 'Registration failed', 'error');
+        }
+      }).catch(err => {
+        showSignupMessage('Server error. Try again later.', 'error');
+      });
 }
 
 // Password Strength Indicator
