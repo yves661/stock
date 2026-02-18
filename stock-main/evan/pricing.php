@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Mini Shop Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/translator.js"></script>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-lg">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <i class="bi bi-shop-window me-2 fs-5"></i>
+                    <strong>Mini Shop Manager</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto gap-2">
+                        <!-- Features Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown">
+                                Features
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                                <li><a class="dropdown-item" href="features.html">All Features</a></li>
+                                <li><a class="dropdown-item" href="features.html#streamlined">Streamlined Inventory</a></li>
+                                <li><a class="dropdown-item" href="features.html#tracking">Effortless Tracking</a></li>
+                                <li><a class="dropdown-item" href="features.html#reporting">Smart Reporting</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Pricing Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="pricingDropdown" role="button" data-bs-toggle="dropdown">
+                                Pricing
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="pricingDropdown">
+                                <li><a class="dropdown-item" href="pricing.html#plans">All Plans</a></li>
+                                <li><a class="dropdown-item" href="pricing.html#basic">Basic Plan</a></li>
+                                <li><a class="dropdown-item" href="pricing.html#pro">Pro Plan</a></li>
+                                <li><a class="dropdown-item" href="pricing.html#enterprise">Enterprise Plan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="pricing.html#faq">FAQ</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Language Selector -->
+                        <li class="nav-item">
+                            <div class="language-selector" id="languageSelector">
+                                <button id="languageBtn" onclick="toggleLanguageDropdown(); return false;">
+                                    <i class="bi bi-globe"></i>
+                                    <span>English</span>
+                                </button>
+                                <div id="languageDropdown">
+                                    <button onclick="setLanguage('en'); return false;" data-lang="en" class="active">English</button>
+                                    <button onclick="setLanguage('fr'); return false;" data-lang="fr">Français</button>
+                                    <button onclick="setLanguage('rw'); return false;" data-lang="rw">Kinyarwanda</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Login Button -->
+                        <li class="nav-item">
+                            <a class="btn btn-primary text-white" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-area">
+        <!-- Pricing Hero Section -->
+        <section class="pricing-hero py-5">
+            <div class="container-lg">
+                <h1 class="display-4 fw-bold text-dark mb-3">Simple & Affordable Pricing</h1>
+                <p class="lead text-muted">Choose plan that fits your business</p>
+            </div>
+        </section>
+
+        <!-- Pricing Plans Section -->
+        <section class="pricing-plans py-5" id="plans">
+            <div class="container-lg">
+                <div class="row g-4">
+                    <!-- Basic Plan -->
+                    <div class="col-lg-4 col-md-6" id="basic">
+                        <div class="pricing-plan-card">
+                            <div class="plan-header">
+                                <h5 class="plan-name">Basic</h5>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount">5,000</span>
+                                <span class="price-currency">Rwf/month</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Stock Management</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Sales Tracking (Basic)</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Daily Reports</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-x-circle text-muted"></i>
+                                    <span class="text-muted">Export to Excel/PDF</span>
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-dark w-100" data-plan="basic">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pro Plan (Recommended) -->
+                    <div class="col-lg-4 col-md-6" id="pro">
+                        <div class="pricing-plan-card featured">
+                            <div class="plan-badge">Recommended</div>
+                            <div class="plan-header featured-header">
+                                <h5 class="plan-name">Pro</h5>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount">1,500</span>
+                                <span class="price-currency">Rwf/month</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>+ Detailed Profit Reports</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Low Stock Alerts (SMS)</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>User Accounts (up to 5)</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Export to Excel/PDF</span>
+                                </li>
+                            </ul>
+                            <button class="btn btn-success w-100" data-plan="pro">
+                                Start Free Trial
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="col-lg-4 col-md-6" id="enterprise">
+                        <div class="pricing-plan-card">
+                            <div class="plan-header">
+                                <h5 class="plan-name">Enterprise</h5>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount">Custom</span>
+                                <span class="price-currency">Pricing</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>All Pro Features</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Multi-Store Support</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Custom Integrations</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Dedicated Support</span>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark w-100" data-plan="enterprise">
+                                Contact Sales
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section py-5" id="faq">
+            <div class="container-lg">
+                <h2 class="display-6 fw-bold text-dark mb-5">Frequently Asked Questions</h2>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <!-- FAQ Item 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        What payment methods do you accept?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        We accept all major payment methods including mobile money (MTN, Airtel), bank transfers, and credit cards. For Rwanda-based customers, we support Rwandatel, Liquid Telecom, and other local payment providers.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Can I change my plan anytime?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes! You can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle. If you upgrade, the difference in pricing is prorated to your account.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        Do you offer a free trial?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes! All new Pro plan users get a 14-day free trial with full access to all Pro features. No credit card required to start your trial. After the trial ends, we'll notify you before charging.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        What happens if I cancel my subscription?
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        You can cancel anytime. Your account will remain accessible until the end of your current billing period. All your data will be securely exported and you can download reports up to 30 days after cancellation.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 5 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                        Is there support included?
+                                    </button>
+                                </h2>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        All plans include email support. Pro plan users get priority support with response times within 24 hours. Enterprise customers get dedicated support with a personal account manager available via phone, email, and chat.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="faq-contact-card">
+                            <h5>Still have questions?</h5>
+                            <p>Our support team is here to help. Reach out to us and we'll get back to you within 24 hours.</p>
+                            <button class="btn btn-dark w-100 mb-3">Send Us a Message</button>
+                            <p class="text-center text-muted small mb-0">
+                                Or call us at<br>
+                                <strong>+250 XXX XXX XXX</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer py-4">
+        <div class="container-lg">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link" title="Slack"><i class="bi bi-slack"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Mini Rai Shop</a>
+                        <a href="#" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Disrector</a>
+                        <a href="#" class="footer-link">Mireracon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/pricing.js"></script>
+</body>
+</html>
